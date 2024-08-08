@@ -1,26 +1,26 @@
 // FOR MODE: only-front
 
-const fakeUser = {
-    id: 666,
-    dni: 70000000,
+const fakeDoctor = {
+    id: 667,
+    dni: 31031666,
     age: 24,
     birthdate: "2000-11-07",
     name: "Franco",
     lastName: "Maidana",
     role: "ROLE_DOCTOR",
     gender: "MALE",
-    email: "maidana@test.com",
+    email: "maidana_doctor@test.com",
     address: {
-        country: "sin especificar",
-        province: "sin especificar",
-        city: "sin especificar",
-        street: "sin especificar"
+        country: "Argentina",
+        province: "Buenos Aires",
+        city: "Rafael Castillo",
+        street: "Calle Verdadera 123"
     },
 }
 
 export const fakePatient = {
     id: 666,
-    dni: 70000000,
+    dni: 36036666,
     age: 24,
     birthdate: "2000-11-07",
     name: "Franco",
@@ -29,13 +29,13 @@ export const fakePatient = {
     gender: "MALE",
     email: "maidana@test.com",
     address: {
-        country: "sin especificar",
-        province: "sin especificar",
-        city: "sin especificar",
-        street: "sin especificar"
+        country: "Argentina",
+        province: "Buenos Aires",
+        city: "Rafael Castillo",
+        street: "Calle Verdadera 123"
     },
     imc: 25.6
 }
 
 
-export default fakeUser;
+export default fakeDoctor;

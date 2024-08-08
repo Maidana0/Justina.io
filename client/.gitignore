@@ -27,5 +27,3 @@ dist-ssr
 # custom ignore
 .vercel
 vercel.json
-
-src/hooks/useSpeechToText

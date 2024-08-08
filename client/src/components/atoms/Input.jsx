@@ -33,6 +33,7 @@ const Input = ({ label, placeholder, password, register, error, width, viewPassw
             className={"w-full text-ellipsis overflow-hidden "}
           />
             : <input
+              value={value ?? ""}
               autoComplete="off"
               type={password ? passwordType : typeInput ?? "text"}
               {...register}

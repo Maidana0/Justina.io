@@ -1,12 +1,15 @@
 import { useState } from "react"
 import microphone from "../../assets/input/microphone.svg"
 import useSpeekToText from "../../hooks/useSpeechToText"
+import useLanguage from "../../hooks/useLanguage"
 
 
 const TextArea = ({ label, children, register, placeholder }) => {
+    const lang = useLanguage()
     const { startListening, stopListening, isListening, transcript } = useSpeekToText({
         continuous: true,
         interimResults: true,
+        lang
     })
 
     const [text, setText] = useState("")

@@ -15,7 +15,7 @@ const LabelForInput = ({ label }) => (
     </div>
 )
 
-const PasswordInput = ({ label, placeholder, register, error }) => {
+const PasswordInput = ({ label, value, placeholder, register, error }) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [passwordType, setPasswordType] = useState("password");
 
@@ -31,6 +31,7 @@ const PasswordInput = ({ label, placeholder, register, error }) => {
                 label={<LabelForInput label={label} />}
                 placeholder={placeholder}
                 password
+                value={value}
                 passwordType={passwordType}
                 register={register}
                 error={error}

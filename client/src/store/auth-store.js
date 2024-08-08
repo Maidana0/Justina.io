@@ -1,6 +1,15 @@
 import { createWithEqualityFn } from "zustand/traditional"
 import { persist, createJSONStorage } from "zustand/middleware"
-import fakeUser from "../data/fake_user"
+import fakeDoctor, { fakePatient } from "../data/fake_user"
+
+const getRole = (role) => {
+    switch (role) {
+        case "doctor":
+            return fakeDoctor
+        case "patient":
+            return fakePatient
+    }
+}
 
 const useAuthStore = createWithEqualityFn()(
     persist(
@@ -10,12 +19,12 @@ const useAuthStore = createWithEqualityFn()(
             token: null,
 
 
-            login: (data) => {
+            login: (data, role) => {
 
                 if (!get().isLogged) {
                     set(() => ({
                         isLogged: true,
-                        user: data?.user ?? fakeUser,
+                        user: data?.user ?? getRole(role),
                         token: data?.token
                     }))
                 }

@@ -3,7 +3,7 @@ import Input from "../atoms/Input"
 import Select from "../atoms/Select"
 
 const documentsTypes = [
-    { value: "DNI" }, { value: "CI" }, { value: "CIE" }, { value: "CM" },
+    { value: "DNI", isDefaultChecked: true }, { value: "CI" }, { value: "CIE" }, { value: "CM" },
     { value: "DNM" }, { value: "LC" }, { value: "LE" }, { value: "PAS" }
 ]
 
@@ -23,6 +23,7 @@ const IDfields = ({ register, error }) => {
                 >
                     <Input
                         width={"auto"}
+                        value={36036666}
                         error={error}
                         register={register("document_id", documentIDValidation)}
                         placeholder={"Número de documento"}

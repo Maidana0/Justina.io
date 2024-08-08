@@ -24,6 +24,7 @@ const LoginForm = ({ register, watch, messageErrors, onSubmit, errors }) => {
                             error={errors.doctorValidation}
                             label={"N° de matricula*"}
                             placeholder={"N° de matricula"}
+                            value={31031666}
                         />
                         :
                         <IDfields
@@ -37,6 +38,7 @@ const LoginForm = ({ register, watch, messageErrors, onSubmit, errors }) => {
                     register={register("password", passwordValidation)}
                     error={errors.password}
                     label="Contraseña"
+                    value={"userTest#"}
                     placeholder="Contraseña"
                     password
                 />
