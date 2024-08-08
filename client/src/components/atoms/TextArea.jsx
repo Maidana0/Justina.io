@@ -1,8 +1,24 @@
+import { useState } from "react"
 import microphone from "../../assets/input/microphone.svg"
+import useSpeekToText from "../../hooks/useSpeechToText"
 
 
 const TextArea = ({ label, children, register, placeholder }) => {
+    const { startListening, stopListening, isListening, transcript } = useSpeekToText({
+        continuous: true,
+        interimResults: true,
+    })
 
+    const [text, setText] = useState("")
+
+    const handleListening = () => {
+        if (isListening) {
+            setText(prevText => prevText + (transcript.length ? (prevText.length ? " " : "") + transcript : ""))
+            stopListening()
+            return
+        }
+        startListening()
+    }
     return (
         <label className="form-control font-poppins mb-5">
             {
@@ -18,12 +34,13 @@ const TextArea = ({ label, children, register, placeholder }) => {
                     className="textarea textarea-secondary rounded-md min-h-24 w-full shadow-xl pb-9"
                     placeholder={placeholder}
                     autoComplete="off"
- 
+                    value={isListening ? text + (transcript.length ? (text.length ? " " : "") + transcript : "") : text}
+                    onChange={(e) => setText(e.target.value)}
                 >
                 </textarea>
                 <button
-                    type="button" 
-                    className={`absolute bottom-4 right-2 p-2 rounded-md border border-secondary `}>
+                    type="button" onClick={handleListening}
+                    className={`absolute bottom-4 right-2 p-2 rounded-md border border-secondary ${isListening && "bg-orange/85 scale-110"} `}>
                     <img
                         width={18}
                         height={24}
@@ -33,7 +50,11 @@ const TextArea = ({ label, children, register, placeholder }) => {
                     />
                 </button>
             </div>
+            {/* <div className="label">
+                <span className="label-text-alt">
 
+                </span>
+            </div> */}
         </label>
     )
 }
